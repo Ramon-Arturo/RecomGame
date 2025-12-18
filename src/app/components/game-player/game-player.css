@@ -1,0 +1,12 @@
+.video-wrapper {
+  width: 100%;
+  position: static;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+.responsive-video {
+  width: 100%;
+  display: block;
+  height: auto;
+}

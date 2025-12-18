@@ -1,0 +1,43 @@
+<!-- <div class="border-4 border-orange-400 grid grid-cols-3">
+  <div class="border-4 border-pink-600 col-span-2">
+    @if(game){
+      <app-game-media [movies]="game?.movies" [screenshots]="game?.screenshots" [titulo]="game?.name"></app-game-media>imagenes y videos del juego
+    }
+    <app-game-info [info]="game?.about_the_game"></app-game-info>informacion del juego (parte de abajo de steam)
+  </div>
+  <div class="border-4 border-green-700">
+    <app-game-desc [description]="game?.short_description" [baner]="game?.header_image"></app-game-desc>banner y descripcion breve del juego (*resenas es la parte de abajo)
+    <app-game-steam-price></app-game-steam-price>precio del juego en steam (*con paquetes y todo lo disponible)
+  </div>
+  <div class="border-4 border-gray-800 col-span-3">
+    <app-game-steam-reviews></app-game-steam-reviews>resenas del juego en steam y de la plataforma
+  </div>
+</div> -->
+
+<div class="h-full w-full grid grid-cols-4 p-2">
+  <div class="col-span-4">
+    <h1 class="text-2xl font-bold text-white pl-1 py-2">{{ game?.name }}</h1>
+  </div>
+  <div class="h-full w-full col-span-3">
+    @if(game){
+
+    <app-game-media
+      [movies]="game?.movies"
+      [screenshots]="game?.screenshots"
+      [titulo]="game?.name"
+    ></app-game-media
+    ><!-- imagenes y videos del juego -->
+    }
+    <app-game-info [info]="game?.detailed_description"></app-game-info>
+    <!-- informacion del juego (parte de abajo de steam) -->
+  </div>
+  <div class="col-span-1">
+    <app-game-desc
+      [description]="game?.short_description"
+      [baner]="game?.header_image"
+    ></app-game-desc
+    ><!-- banner y descripcion breve del juego (*resenas es la parte de abajo) -->
+    <app-game-steam-price [appId]="game?.steam_appid" [genres]="game?.genres"></app-game-steam-price
+    ><!-- precio del juego en steam (*con paquetes y todo lo disponible) -->
+  </div>
+</div>

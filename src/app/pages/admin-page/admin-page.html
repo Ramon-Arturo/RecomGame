@@ -1,0 +1,79 @@
+<div class="h-full w-full bg-linear-to-b from-[#131022] to-[#120f21]">
+  <app-nav-component></app-nav-component>
+  <div class="flex justify-center">
+    <div class="w-full items-center flex flex-col mt-10">
+      <h1 class="text-white font-bold text-3xl">Admin Page</h1>
+      <p class="text-white">editar preferencias del sistema</p>
+      <div
+        class="w-full bg-gray-200 shadow-2xl ring ring-white mt-5 mb-10 rounded-4xl max-md:mx-10 2xl:w-[1536px]"
+      >
+        <mat-tab-group class="p-5">
+          <mat-tab label="Preferencias de TAGS">
+            <mat-form-field>
+              <mat-label>Filter</mat-label>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input />
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+              <table mat-table [dataSource]="metadataDataSource" matSort>
+                <ng-container matColumnDef="idToken">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                  <td mat-cell *matCellDef="let row">{{ row.idToken }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="tokenName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Token Name</th>
+                  <td mat-cell *matCellDef="let row">{{ row.tokenName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="metadataType">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Metadata Type</th>
+                  <td mat-cell *matCellDef="let row">{{ row.metadataType }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="isRelevant">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Is Relevant</th>
+                  <td mat-cell *matCellDef="let row">{{ row.isRelevant }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="modifiedAt">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Modified At</th>
+                  <td mat-cell *matCellDef="let row">{{ row.modifiedAt }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Created At</th>
+                  <td mat-cell *matCellDef="let row">{{ row.createdAt }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef>Actions</th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-button-toggle (change)="togglebutton(row)" [checked]="row.isRelevant">{{ row.isRelevant }}</mat-button-toggle>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+                <!-- Row shown when there is no matching data. -->
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">
+                    No data matching the filter "{{ input.value }}"
+                  </td>
+                </tr>
+              </table>
+
+              <mat-paginator
+                [pageSizeOptions]="[10, 30, 50, 100]"
+                aria-label="Select page of users"
+              ></mat-paginator>
+            </div>
+          </mat-tab>
+          <mat-tab label="Configuración 2"></mat-tab>
+          <mat-tab label="Configuración 3"></mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+@if (valor() != 4) {
+<button
+  class="bg-[#1b182c] ring text-white p-4 mx-5 mb-20 rounded-xl hover:bg-[#3713ec] hover:shadow-2xl hover:shadow-[#3713ec]"
+  (click)="addGame()"
+>
+  {{ tipo() }}
+</button>
+}@else{
+<button
+  class="bg-[#1b182c] ring text-white p-4 mx-5 mb-20 rounded-xl hover:bg-[#3713ec] hover:shadow-2xl hover:shadow-[#3713ec]"
+  (click)="skipGame()"
+>
+  {{ tipo() }}
+</button>
+}

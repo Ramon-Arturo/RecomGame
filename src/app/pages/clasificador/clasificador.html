@@ -1,0 +1,52 @@
+@if (list.games.length > 0) {
+<app-nav-component></app-nav-component>
+<h1>{{ index() }} {{ list.games[index()].idSteamGame }}</h1>
+
+<div class="w-full bg-linear-to-b from-[#131022] to-[#120f21] flex justify-center">
+  <div class="w-full items-center flex flex-col mt-10">
+    <h1 class="text-white font-bold text-3xl">Descubre tu proximo juego</h1>
+    <p class="text-white">Basado en tus gustos y preferencias</p>
+    <div
+      class="h-full w-full bg-[#1b182b] shadow-2xl ring ring-white mt-5 mb-50 rounded-4xl max-md:mx-10 2xl:w-[1536px]"
+    >
+      <app-hub-game [game]="game"></app-hub-game>
+    </div>
+  </div>
+  <div
+    class="fixed bottom-0 bg-linear-to-t from-[#121021] via-[rgba(18,16,33,0.7)] to-[rgba(0,0,0,0)] w-[1536px] h-fit flex justify-center items-end"
+  >
+    <app-boton-respuesta
+      tipo="X No me interesa"
+      [valor]="0"
+      [idSteamGame]="+list.games[index()].idSteamGame"
+      [(indexBTN)]="index"
+    ></app-boton-respuesta>
+    <app-boton-respuesta
+      tipo="🌟 Wishlist"
+      [valor]="3"
+      [idSteamGame]="+list.games[index()].idSteamGame"
+      [(indexBTN)]="index"
+    ></app-boton-respuesta>
+    <app-boton-respuesta
+      tipo="❤ Me encanta"
+      [valor]="2"
+      [idSteamGame]="+list.games[index()].idSteamGame"
+      [(indexBTN)]="index"
+    ></app-boton-respuesta>
+    <app-boton-respuesta
+      tipo="👍 Me gusta el juego"
+      [valor]="1"
+      [idSteamGame]="+list.games[index()].idSteamGame"
+      [(indexBTN)]="index"
+    ></app-boton-respuesta>
+    <app-boton-respuesta
+      tipo="🡪 Siguiente"
+      [valor]="4"
+      [idSteamGame]="+list.games[index()].idSteamGame"
+      [(indexBTN)]="index"
+    ></app-boton-respuesta>
+  </div>
+</div>
+}@else {
+<h1 class="text-6xl">NO GAMES</h1>
+}
